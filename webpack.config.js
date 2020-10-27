@@ -12,7 +12,7 @@ module.exports = {
     // match the output 'publicPath'
     publicPath: '/build/',
     hot: true,
-    contentBase: path.resolve(__dirname, './public'),
+    contentBase: path.resolve(__dirname, 'public'),
     port: 8080,
     proxy: {
       '/': 'http://localhost:3000/',
