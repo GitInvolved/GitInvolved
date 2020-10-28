@@ -8,11 +8,11 @@ const Header = () => {
       </div>
       <div id="header-right">
         <div id="header-links">
-          <a className="header-btn"><p id="my-repos-header">My Repositories</p></a>
-          <a className="header-btn"><p id="starred-header">Starred</p></a>
+          <a className="header-btn" id="my-repos-header">My Repositories</a>
+          <a className="header-btn" id="starred-header">Starred Repositories</a>
         </div>
         <div id="header-search">
-          <input id="" type="text" placeholder="Find Repository"></input>
+          <input id="profile-repo-search" type="text" placeholder="Find Repository"></input>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ import RepoContainer from './RepoContainer';
 
 const ProfileContainer = () => {
   return (
-    <div>
+    <div id="profile-container">
       <Header />
       <div id="cat-and-repo">
         <CategoryContainer />

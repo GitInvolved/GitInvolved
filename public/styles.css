@@ -2,23 +2,28 @@ body {
   background-color: rgb(25, 197, 219);
 }
 
+#profile-container {
+  display: block;
+  margin: 4rem auto auto auto;
+  justify-self: auto;
+  align-self: center;
+  width: 65vw;
+  min-width: 620px;
+}
+
 #header-container {
   display: grid;
-  grid-template-columns: 13rem 30rem;
-  border: 5px solid black;
+  grid-template-columns: 28% 72%;
   margin: 0.5rem auto 0.5rem auto;
 }
 
 #profile-pic-div {
-  /* display: inline-block; */
-  margin-left: 2rem;
   grid-column: 1 / 2;
-  border: 5px solid fuchsia;
 }
 
 #header-right {
   grid-column: 2/3;
-  border: 5px solid green;
+  align-self: end;
 }
 
 #cat-and-repo {
@@ -32,9 +37,30 @@ body {
 }
 
 .header-btn {
-  border: 1px solid pink;
+  display: inline-block;
   border-radius: 3px;
-  padding: 0.5rem;
+  padding: 1rem 1.5rem 1rem 0rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  transition: color 0.18s;
+}
+
+.header-btn:hover {
+  color: white;
+}
+
+#profile-repo-search {
+  height: 2rem;
+  width: 21rem;
+  border-radius: 3px;
+  border-style: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+#profile-repo-search {
+  outline: none;
 }
 
 #logincont {
