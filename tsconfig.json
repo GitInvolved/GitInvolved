@@ -6,6 +6,8 @@
     "lib": ["es6"],
     "sourceMap": true,
     "rootDirs": ["client", "public", "server"],
+    "jsx":"react",
+    "skipLibCheck": true,
     "moduleResolution": "node",
     "strict": true /* enable all strict type-checking options */,
     /* Additional Checks */
