@@ -8,7 +8,7 @@ body {
   flex-direction: column;
   top: 25%;
   left: 50%;
-  transform: translateX(-14vw);
+  transform: translateX(-12vw);
 }
 
 #logincont h3 {
@@ -20,7 +20,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  width: 28vw;
+  width: 24vw;
   height: 24vh;
   background-color: linen;
   border-radius: 8px;
