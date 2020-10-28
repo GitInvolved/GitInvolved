@@ -2,10 +2,6 @@ body {
   background-color: rgb(25, 197, 219);
 }
 
-.header-btn {
-  display: inline-block;
-}
-
 #header-container {
   display: grid;
   grid-template-columns: 13rem 30rem;
@@ -39,4 +35,39 @@ body {
   border: 1px solid pink;
   border-radius: 3px;
   padding: 0.5rem;
+}
+
+#logincont {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-12vw);
+}
+
+#logincont h3 {
+  text-align: center;
+}
+
+#logincont form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 24vw;
+  height: 24vh;
+  background-color: linen;
+  border-radius: 8px;
+  border: 1px solid black;
+  min-width: 285px;
+}
+
+#logincont form div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#logincont form div input {
+  margin-left: 10px;
 }
