@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es6",
-    "outDir": "./build/",
+    "outDir": "./tsbuild/",
     "lib": ["es6", "dom"],
     "sourceMap": true,
     "rootDirs": ["client", "public", "server"],
