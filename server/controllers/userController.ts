@@ -5,7 +5,7 @@ let userController: any = {};
 // https://api.github.com/users/defunkt/repos
 
 let dummyUser: string = 'jmodestov';
-userController.getRepos = (req, res, next) => {
+userController.getRepos = (req: any, res: any, next: any) => {
   fetch('https://api.github.com/users/jmodestov/repos')
   .then(res => res.json())
   .then((data) => {
