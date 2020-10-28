@@ -1,8 +1,10 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: './client/index.ts',
+  target: 'web',
+  entry: './client/index.tsx',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
@@ -12,7 +14,6 @@ module.exports = {
     // match the output 'publicPath'
     publicPath: '/build/',
     hot: true,
-    contentBase: path.resolve(__dirname, 'public'),
     port: 8080,
     proxy: {
       '/': 'http://localhost:3000/',
@@ -26,9 +27,17 @@ module.exports = {
         use: [
           {
             // loader compiles typescript
-            loader: 'ts-loader',
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+            },
           },
         ],
+      },
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader",
       },
       {
         test: /\.s[ac]ss$/i,
@@ -42,7 +51,12 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx'],
+    extensions: ['.js', '.ts', '.tsx', ".jsx", ".json"],
     modules: ['node_modules'],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './public/index.html'),
+    }),
+  ],
 };
