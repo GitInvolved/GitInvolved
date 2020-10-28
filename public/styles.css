@@ -1,3 +1,16 @@
 body {
   background-color: rgb(25, 197, 219);
 }
+
+.header-btn {
+  display: inline-block;
+}
+
+#header-container {
+  display: inline-block;
+  margin-left: 2rem;
+}
+
+#profile-pic {
+  width: 10rem;
+}
