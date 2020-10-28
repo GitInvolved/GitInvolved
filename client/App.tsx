@@ -1,8 +1,12 @@
 import React from 'react';
+import ProfileContainer from './Containers/ProfileContainer';
 
 function App() {
   return(
-    <div>We want this to work please</div>
+    <div>
+      <p>We want this to work please</p>
+      <ProfileContainer />
+    </div>
   )
 }
 
