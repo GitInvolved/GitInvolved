@@ -11,6 +11,10 @@ body {
   margin-left: 2rem;
 }
 
+#cat-and-repo {
+  display: flex;
+}
+
 #profile-pic {
   width: 10rem;
 }
