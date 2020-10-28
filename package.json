@@ -20,6 +20,17 @@
     "url": "https://github.com/GitInvolved/GitInvolved/issues"
   },
   "homepage": "https://github.com/GitInvolved/GitInvolved#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,json,tsx,jsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
   "dependencies": {
     "@types/react": "^16.9.54",
     "@types/react-dom": "^16.9.9",
@@ -42,11 +53,13 @@
     "css-loader": "^5.0.0",
     "eslint": "^7.12.1",
     "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "html-webpack-plugin": "^4.5.0",
+    "husky": "^4.3.0",
     "nodemon": "^2.0.6",
     "prettier": "^2.1.2",
     "sass": "^1.27.0",

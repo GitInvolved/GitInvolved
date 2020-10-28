@@ -47,6 +47,7 @@ body {
 
 .header-btn:hover {
   color: white;
+  cursor: pointer;
 }
 
 #profile-repo-search {
