@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const LoginComponent = () => {
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -9,14 +8,14 @@ const LoginComponent = () => {
     console.log(username, password);
     setUsername('');
     setPassword('');
-  }
+  };
 
   return (
     <>
       <form>
         <div>
           <label htmlFor="inputun">Username: </label>
-          <input id="inputun" type="text" onChange={e=>setUsername(e.target.value)}/>
+          <input id="inputun" type="text" onChange={ (e) =>setUsername(e.target.value) } />
         </div>
         <div>
           <label htmlFor="inputpw">Password: </label>

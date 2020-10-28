@@ -1,9 +1,15 @@
 /* eslint-disable react/jsx-filename-extension */
-import React from 'react';
+import React, { useState } from 'react';
 
 const Header = () => {
-  const onEnter = () => {
-    //  do something
+
+  const [repoSearch, setRepoSearch] = useState('');
+
+  const handleEnter = (e: any) => {
+    if (e.key === 'Enter') {
+      console.log('Search Repo: ' + repoSearch);
+      // setRepoSearch('');
+    }
   };
 
   return (
@@ -17,7 +23,13 @@ const Header = () => {
           <a className="header-btn" id="starred-header">Starred Repositories</a>
         </div>
         <div id="header-search">
-          <input id="profile-repo-search" type="text" placeholder="Find Repository" />
+          <input
+            id="profile-repo-search"
+            type="text"
+            placeholder="Find Repository"
+            onChange={(e) => setRepoSearch(e.target.value)}
+            onKeyDown={handleEnter}
+          />
         </div>
       </div>
     </div>
