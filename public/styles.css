@@ -7,14 +7,36 @@ body {
 }
 
 #header-container {
+  display: grid;
+  grid-template-columns: 13rem 30rem;
+  border: 5px solid black;
+  margin: 0.5rem auto 0.5rem auto;
+}
+
+#profile-pic-div {
+  /* display: inline-block; */
+  margin-left: 2rem;
+  grid-column: 1 / 2;
+  border: 5px solid fuchsia;
+}
+
+#header-right {
+  grid-column: 2/3;
+  border: 5px solid green;
+}
+
+#cat-and-repo {
   display: inline-block;
   margin-left: 2rem;
 }
 
-#cat-and-repo {
-  display: flex;
-}
-
 #profile-pic {
   width: 10rem;
+  border-radius: 50%;
+}
+
+.header-btn {
+  border: 1px solid pink;
+  border-radius: 3px;
+  padding: 0.5rem;
 }
