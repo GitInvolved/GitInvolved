@@ -5,9 +5,9 @@
   "main": "index.tsx",
   "scripts": {
     "compile": "tsc -p ./",
-    "start": "tsc && node out/server/server.js",
+    "start": "tsc -p ./ && node build/server/server.js",
     "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development concurrently \"tsc -p ./\" \"nodemon out/server/server.js\" \"webpack-dev-server --open --hot\"",
+    "dev": "NODE_ENV=development concurrently \"nodemon build/server/server.js\" \"webpack-dev-server --open --hot\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

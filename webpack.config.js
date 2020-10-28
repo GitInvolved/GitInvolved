@@ -27,18 +27,15 @@ module.exports = {
         use: [
           {
             // loader compiles typescript
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
-            },
+            loader: 'ts-loader',
           },
         ],
       },
-      {
-        enforce: "pre",
-        test: /\.js$/,
-        loader: "source-map-loader",
-      },
+      // {
+      //   enforce: 'pre',
+      //   test: /\.js$/,
+      //   loader: 'source-map-loader',
+      // },
       {
         test: /\.s[ac]ss$/i,
         exclude: /node_modules/,
@@ -51,7 +48,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', ".jsx", ".json"],
+    extensions: ['.js', '.ts', '.tsx', '.jsx', '.json'],
     modules: ['node_modules'],
   },
   plugins: [
