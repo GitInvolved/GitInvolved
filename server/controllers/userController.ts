@@ -75,7 +75,28 @@ userController.getLanguages = (_req: any, _res: any, next: any) => {
   })
 }
 
-// userController.updateUser = ()
+userController.updateUser = (_req: any, res: any, next: any) => {
+
+  //query all repos pertaining to user
+  UserRepos.find({owner: dummyUser}, async (_err: any, data: any) => {
+    if(_err) {
+      console.log(_err);
+      return next();
+    }
+    // pushing repos into the userRepos key of the user object in the DB
+    await User.findOneAndUpdate({userName: dummyUser}, {userRepos: data}, {new: true}, (err, data) => {
+      if(err){
+        console.log(err);
+        return next()
+      }
+      res.locals.userObject = data;
+    });
+  })
+  return next();
+
+}
+
+
 /* either going to create a user or get an existing user  */
 userController.getUser = (_req: any, res:any, next: any) => {
   //query the mongoDB for the User
@@ -86,15 +107,16 @@ userController.getUser = (_req: any, res:any, next: any) => {
     } else {
       //if the user was not found
       if (data === null) {
-        //create the user
-        const user = new User({
+
+        await User.create({
           userName: dummyUser,
           starred: [],
           categories: [],
           userRepos: []
+        }, (_err, user) => {
+          res.locals.user = user;
         })
-        const save = await user.save()
-        res.locals.user = user; 
+
       } else {
         res.locals.user = data; 
       }
