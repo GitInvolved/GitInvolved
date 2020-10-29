@@ -9,6 +9,7 @@ body {
   align-self: center;
   width: 65vw;
   min-width: 620px;
+  font-family: 'Comic Neue', cursive;
 }
 
 #header-container {
@@ -35,25 +36,33 @@ body {
   display: inline-block;
   border-radius: 5px;
   padding: 1rem 1.5rem 1rem 1rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Comic Neue', cursive;
   font-size: 1.2rem;
   transition: color 0.18s;
   text-align: center;
   margin-bottom: 1rem;
+  margin-right: 0.5rem;
 }
 
 .header-btn.active {
-  background-color: rgb(26, 183, 204);
-  border: 2px solid rgb(25, 80, 134);
+  color: navy;
+  background-color: rgb(33, 191, 212);
+  border: 2px solid navy;
 }
 
-.header-btn.active {
+.header-btn.inactive {
   background-color: rgb(25, 197, 219);
   border: 2px solid linen;
+  color: rgb(29, 29, 124);
 }
 
 .header-btn:hover {
   color: white;
+  cursor: pointer;
+}
+
+.header-btn.inactive:hover {
+  color: lightgray;
   cursor: pointer;
 }
 
@@ -62,7 +71,7 @@ body {
   width: 21rem;
   border-radius: 3px;
   border-style: hidden;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Comic Neue', cursive;
   font-size: 1rem;
   padding-left: 0.75rem;
   margin-bottom: 3rem;
@@ -112,53 +121,66 @@ body {
 }
 
 #categorycont {
-  color: rgb(23, 75, 128);
-  font-family: Arial, Helvetica, sans-serif;
+  color: navy;
+  font-family: 'Comic Neue', cursive;
   width: 12vw;
   min-width: 125px;
   text-align: center;
 }
 
 #repo-container {
-  font-family: Arial, Helvetica, sans-serif;
-  margin-left: 3rem;
+  font-family: 'Comic Neue', cursive;
+  margin-left: 3.8rem;
   width: 70%;
   min-width: 23rem;
+}
+
+.repotitle {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.3vw;
+}
+
+.repoicon {
+  font-size: 1.5rem;
+  vertical-align: middle;
+  margin-right: 0.4rem;
 }
 
 /* grid stuff */
 
 .repo-div {
-  width: 40vw;
-  height: 25vh;
+  width: 46vw;
+  height: 30vh;
   padding-left: 1rem;
-  border: 2px solid black;
+  border: 2px solid navy;
+  border-radius: 8px;
+  color: navy;
   display: grid;
+  margin-bottom: 1rem;
   grid-template-rows: 2fr, 2fr, 1fr;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 0.5rem;
-}
-
-.repo-div div {
-  border: 1px solid salmon;
+  grid-gap: 1rem;
+  font-family: 'Comic Neue', cursive;
 }
 
 .repoheader {
-  font-size: 2vw;
+  font-size: 2.1rem;
+  font-family: 'Comic Neue', cursive;
   grid-row: 1;
   grid-column-start: 1;
   grid-column-end: 3;
+  padding-top: 1vw;
 }
 
 .repodesc {
   grid-row: 2;
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 5;
 }
 
 .repoowner {
   grid-row: 2;
-  grid-column: 4;
+  grid-column: 5;
 }
 
 .repourl {
@@ -168,13 +190,32 @@ body {
 }
 
 .repostars {
-  grid-row: 2;
+  font-size: 1.2rem;
+  grid-row: 1;
   grid-column: 5;
+  margin-top: 2rem;
 }
 
 .repohelp {
   grid-row: 3;
   grid-column: 5;
+}
+
+.repohelp div {
+  display: flex;
+}
+
+.helpbut {
+  font-family: 'Comic Neue', cursive;
+  padding: 0.1rem 0.2rem 0.0rem 0.2rem;
+  margin-right: 0.3rem;
+  border-radius: 3px;
+}
+
+.helpbut.active {
+  background-color: rgb(25, 197, 219);
+  color: navy;
+  border: 1px solid navy;
 }
 
 /* grid end*/
@@ -196,8 +237,8 @@ body {
   margin-right: 00.5rem;
 }
 
-.containericon, .repoicon {
-  color: rgb(23, 75, 128);
+.containericon {
+  color: navy;
   font-size: medium;
   bottom: 0px;
 }
@@ -215,6 +256,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  font-family: 'Comic Neue', cursive;
 }
 
 .addCatForm.active input {
@@ -227,6 +269,7 @@ body {
   margin-bottom: 1vh;
   outline: none;
   height: 2.5vh;
+  font-family: 'Comic Neue', cursive;
   font-size: inherit;
 }
 

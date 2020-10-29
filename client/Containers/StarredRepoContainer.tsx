@@ -4,7 +4,6 @@ import Repo from '../Components/Repo';
 const StarredRepoContainer = () => {
   return (
     <div id="repo-container">
-      <h3>Starred</h3>
       <Repo />
     </div>
   )

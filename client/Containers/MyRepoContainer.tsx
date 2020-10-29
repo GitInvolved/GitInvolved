@@ -13,7 +13,7 @@ const MyRepoContainer = (props: any) => {
         owner={props.data[i].owner}
         stars={props.data[i].stargazers}
         url={props.data[i].repoUrl}
-        help={props.data[i].help.toString()}
+        help={props.data[i].help}
       />
     );
   }

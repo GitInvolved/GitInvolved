@@ -40,7 +40,7 @@ const ProfileContainer = () => {
   const dummyData = [
     { gitId: 432,
       name: 'Aqls', 
-      description: 'a way to get aqls',
+      description: 'a way to get aqls. you send an aql to the traql, and the traql sends it up to the aql server, and if you don\'t get back all the aqls, you get an error aql',
       owner: 'julie pinchak',
       forked: true, // ------> do you own main repo or a fork of it
       stargazers: 84, // ------> number of stars
@@ -51,7 +51,7 @@ const ProfileContainer = () => {
     },
     { gitId: 434,
       name: 'Gatsby', 
-      description: 'got tons of attention',
+      description: 'got tons of attention, they are now super famous, they all deserve super awesome jobs working for gatsby, so everyone go star their stuff',
       owner: 'bhash',
       forked: false, // ------> do you own main repo or a fork of it
       stargazers: 121, // ------> number of stars
