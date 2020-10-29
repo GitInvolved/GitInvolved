@@ -3,9 +3,9 @@ import userController from '../controllers/userController';
 
 const userAPI = express.Router();
 
-userAPI.get('/userInfo', userController.getUser, userController.getRepos, userController.getLanguages, userController.updateUser, (_req, res) => {
-  console.log('res.locals: ',res.locals.userObject);
-  res.sendStatus(200);
+userAPI.get('/userInfo', userController.getUser, userController.getRepos, userController.getLanguages, userController.getStarred, userController.updateUser, (_req, res) => {
+  // console.log('res.locals: ',res.locals.userObject);
+  res.status(200).json(res.locals.userObject);
 })
 
 userAPI.get('/getrepos', userController.getRepos, userController.getLanguages, (_req, res) => {
