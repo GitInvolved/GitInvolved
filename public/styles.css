@@ -40,6 +40,14 @@ body {
   transition: color 0.18s;
 }
 
+.header-btn.active {
+  background-color: mediumvioletred;
+}
+
+.header-btn.inactive {
+  background-color: lightpink;
+}
+
 .header-btn:hover {
   color: white;
   cursor: pointer;
