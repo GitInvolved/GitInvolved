@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const authController = {};
-const clientId = '21b87ca77f7f56db3dcf';
-const clientSecret = '04c60e8e8bddaaaeb6066b76b18198ccef6608e0';
+const clientId = '';
+const clientSecret = '';
 const redirectUrl = 'http://localhost:3000/auth/profile';
 
 authController.getData = (req, res, next) => {
