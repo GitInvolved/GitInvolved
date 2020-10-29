@@ -1,6 +1,7 @@
 import User from '../models/applicationUsers';
 import UserRepos from '../models/userRepos';
 import fetch from 'node-fetch';
+import { response } from 'express';
 let userController: any = {};
 
 // GET /repos/{owner}/{repo}
@@ -63,38 +64,45 @@ userController.getLanguages = (_req: any, _res: any, next: any) => {
     //iterate over the data returned, taking each object an update the languages key in the database
     //updating the language key: fetch to the url from the same object's languages_url
     console.log(`data inside of getLanguages controller:`, data)
-    data.forEach(async (repo: any) => {
-      await fetch(`${repo.languages_url}`)
-        .then((response) => response.json())
-        .then(async responseLanguages => {
-          await UserRepos.findOneAndUpdate({gitId: repo.gitId}, {languages: responseLanguages }, {findAndModify: false})
-        })
+   for (let repo of data){
+     fetch(`${repo.languages_url}`)
+    .then((response) => response.json())
+    .then(async responseLanguages => {
+      await UserRepos.findOneAndUpdate({gitId: repo.gitId}, {languages: responseLanguages }, {findAndModify: false})
     })
+   } 
     return next(); 
   })
 }
 
-
-  //   .then((data: any) => {
-  //           //iterate over the data returned, taking each object an update the languages key in the database
-  //           //updating the language key: fetch to the url from the same object's languages_url
-  //     data.forEach(async (repo: any) => {
-  //       await fetch(`${repo.languages_url}`)
-  //         .then((response) => response.json())
-  //         .then(async responseLanguages => {
-  //           await UserRepos.findOneAndUpdate({gitId: repo.gitId}, {languages: responseLanguages }, {findAndModify: true})
-  //         })
-  //     })
-  //     console.log(data);
-  //     return next();
-  //   })
-  //   .catch((err: any) => {
-  //     console.log(err);
-  //     return next(); 
-  //   })
-  // //query the database
-  //   //the userRepos collection where owner of document is = userName
-
+// userController.updateUser = ()
+/* either going to create a user or get an existing user  */
+userController.getUser = (_req: any, res:any, next: any) => {
+  //query the mongoDB for the User
+  User.findOne({userName: dummyUser}, async (err, data) => {
+    if (err) {
+      console.log(err);
+      return next(); 
+    } else {
+      //if the user was not found
+      if (data === null) {
+        //create the user
+        const user = new User({
+          userName: dummyUser,
+          starred: [],
+          categories: [],
+          userRepos: []
+        })
+        const save = await user.save()
+        res.locals.user = user; 
+      } else {
+        res.locals.user = data; 
+      }
+      
+    }
+    return next();
+  })
+};
 
 
 export default userController;
