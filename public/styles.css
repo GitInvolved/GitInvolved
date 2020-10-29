@@ -33,19 +33,23 @@ body {
 
 .header-btn {
   display: inline-block;
-  border-radius: 3px;
-  padding: 1rem 1.5rem 1rem 0rem;
+  border-radius: 5px;
+  padding: 1rem 1.5rem 1rem 1rem;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   transition: color 0.18s;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .header-btn.active {
-  background-color: mediumvioletred;
+  background-color: rgb(26, 183, 204);
+  border: 2px solid rgb(25, 80, 134);
 }
 
-.header-btn.inactive {
-  background-color: lightpink;
+.header-btn.active {
+  background-color: rgb(25, 197, 219);
+  border: 2px solid linen;
 }
 
 .header-btn:hover {
@@ -122,10 +126,58 @@ body {
   min-width: 23rem;
 }
 
+/* grid stuff */
+
 .repo-div {
+  width: 40vw;
+  height: 25vh;
   padding-left: 1rem;
   border: 2px solid black;
+  display: grid;
+  grid-template-rows: 2fr, 2fr, 1fr;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 0.5rem;
 }
+
+.repo-div div {
+  border: 1px solid salmon;
+}
+
+.repoheader {
+  font-size: 2vw;
+  grid-row: 1;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.repodesc {
+  grid-row: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.repoowner {
+  grid-row: 2;
+  grid-column: 4;
+}
+
+.repourl {
+  grid-row: 3;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.repostars {
+  grid-row: 2;
+  grid-column: 5;
+}
+
+.repohelp {
+  grid-row: 3;
+  grid-column: 5;
+}
+
+/* grid end*/
 
 .catContainer {
   display: flex;
@@ -144,7 +196,7 @@ body {
   margin-right: 00.5rem;
 }
 
-.containericon {
+.containericon, .repoicon {
   color: rgb(23, 75, 128);
   font-size: medium;
   bottom: 0px;
