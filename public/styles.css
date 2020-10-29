@@ -1,3 +1,204 @@
 body {
   background-color: rgb(25, 197, 219);
 }
+
+#profile-container {
+  display: block;
+  margin: 4rem auto auto auto;
+  justify-self: auto;
+  align-self: center;
+  width: 65vw;
+  min-width: 620px;
+}
+
+#header-container {
+  display: grid;
+  grid-template-columns: 28% 72%;
+  margin: 0.5rem auto 0.5rem auto;
+}
+
+#profile-pic-div {
+  grid-column: 1 / 2;
+}
+
+#header-right {
+  grid-column: 2/3;
+  align-self: end;
+}
+
+#cat-and-repo {
+  display: inline-block;
+  margin-left: 2rem;
+}
+
+#profile-pic {
+  width: 10rem;
+  border-radius: 50%;
+}
+
+.header-btn {
+  display: inline-block;
+  border-radius: 3px;
+  padding: 1rem 1.5rem 1rem 0rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  transition: color 0.18s;
+}
+
+.header-btn:hover {
+  color: white;
+  cursor: pointer;
+}
+
+#profile-repo-search {
+  height: 2rem;
+  width: 21rem;
+  border-radius: 3px;
+  border-style: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  padding-left: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+#profile-repo-search {
+  outline: none;
+}
+
+#logincont {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-12vw);
+}
+
+#logincont h3 {
+  text-align: center;
+}
+
+#logincont form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 24vw;
+  height: 24vh;
+  background-color: linen;
+  border-radius: 8px;
+  border: 1px solid black;
+  min-width: 285px;
+}
+
+#logincont form div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#logincont form div input {
+  margin-left: 10px;
+}
+
+#categorycont {
+  color: rgb(23, 75, 128);
+  font-family: Arial, Helvetica, sans-serif;
+  width: 12vw;
+  min-width: 125px;
+  text-align: center;
+}
+
+.catContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  width: 12vw;
+  min-width: 120px;
+  height: 5vh;
+  padding-left: 0.5rem;
+  border: 2px solid linen;
+  margin-bottom: 0.25rem;
+}
+
+.catContainer .containericon {
+  margin-right: 00.5rem;
+}
+
+.containericon {
+  color: rgb(23, 75, 128);
+  font-size: medium;
+  bottom: 0px;
+}
+
+.addCatForm {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.addCatForm.active {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.addCatForm.active input {
+  width: 8vw;
+  border: none;
+  border-radius: 3px;
+  min-width: 100px;
+  margin-right: 0.5vw;
+  margin-left: 1.5vw;
+  margin-bottom: 1vh;
+  outline: none;
+  height: 2.5vh;
+  font-size: inherit;
+}
+
+.addCatForm.active button {
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: none;
+  border: none;
+  outline-style: none;
+  margin: none;
+  padding: 0px 0px 0px 0px !important;
+  margin-bottom: 1vh;
+  text-align: left;
+}
+
+.addCatForm.active button:visited {
+  border: none;
+  outline-style: none;
+  background-color: none;
+}
+
+.check {
+  position: relative;
+  margin-left: 0px !important;
+  margin-top: 0px !important;
+  padding-left: 0px !important;
+  padding-top: 0px !important;
+}
+
+.containericon.inactive {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.containericon.active {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  margin-left: 0.4vw;
+  vertical-align: middle;
+}

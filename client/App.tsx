@@ -1,8 +1,13 @@
 import React from 'react';
+import LoginContainer from './Containers/LoginContainer';
+import ProfileContainer from './Containers/ProfileContainer';
 
 function App() {
   return(
-    <div>We want this to work please</div>
+    <>
+      {/* <LoginContainer /> */}
+      <ProfileContainer />
+    </>
   )
 }
 
