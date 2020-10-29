@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const LoginComponent = () => {
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -9,7 +8,7 @@ const LoginComponent = () => {
     console.log(username, password);
     setUsername('');
     setPassword('');
-  }
+  };
 
   return (
     <>
