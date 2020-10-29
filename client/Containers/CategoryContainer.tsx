@@ -8,11 +8,11 @@ const CategoryContainer = () => {
   const [newCat, setNewCat] = useState('');
   const [isAddCatActive, setIsAddCatActive] = useState(false);
 
-  const handleAddCat = () => {
+  const handleAddCat = (event: any) => {
     if(newCat) {
+      event.preventDefault();
       setIsAddCatActive(false);
       setCategories(categories.concat(newCat));
-      console.log(newCat);
       setNewCat('');
     }
   }
@@ -32,9 +32,9 @@ const CategoryContainer = () => {
         <MdAddCircle className={`containericon ${isAddCatActive? 'inactive' : 'active'}`} onClick={() => setIsAddCatActive(!isAddCatActive)}/>
         <MdRemoveCircle className={`containericon ${isAddCatActive? 'active' : 'inactive'}`} onClick={() => setIsAddCatActive(!isAddCatActive)}/>
       </h3>
-      <form className={`addCatForm ${isAddCatActive? 'active' : 'inactive'}`}>
+      <form onSubmit={handleAddCat} className={`addCatForm ${isAddCatActive? 'active' : 'inactive'}`}>
         <input type="text" onChange={e => setNewCat(e.target.value)} value={newCat} placeholder='Add Category' />
-        <button type="button"><MdCheckCircle className="containericon check" onClick={handleAddCat} /></button>
+        <button type="submit"><MdCheckCircle className="containericon check" onClick={handleAddCat} /></button>
       </form>
 
       {catList}

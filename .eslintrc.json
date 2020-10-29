@@ -17,7 +17,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "import"],
   "rules": {
     "react/jsx-filename-extension": "off"
   },
@@ -31,5 +31,12 @@
         "@typescript-eslint/naming-convention": "off"
       }
     }
-  ]
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
 }
