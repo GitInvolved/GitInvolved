@@ -9,54 +9,92 @@ let userController: any = {};
 let dummyUser: string = 'oslabs-beta';
 
 // gitHubid, name (title), forked, stargazers_count, commits, languages_url
-userController.getRepos = (req: any, res: any, next: any) => {
-  let req1 = req;
-  let res1 = res;
-
+userController.getRepos = async (_req: any, _res: any, next: any) => {
   fetch(`https://api.github.com/users/${dummyUser}/repos`)
   .then(res => res.json())
-  .then((data) => {
+  .then( async (data) => {
 
     console.log(typeof data)
     console.log(Array.isArray(data));
-    console.log(data);
+    // console.log(data);
    
     // Iterate through data which is an array of repo objects
-    data.forEach(async (repo: any) => {
-      
-      let dbRepo = await UserRepos.findOne({gitId: `${repo.id}`}).exec()
+     for (let repo of data){
 
-      if(dbRepo === null) {
-        // Create dbRepo using the userRepo Schema
-        await UserRepos.create({
-          gitId: repo.id,
-          description: repo.description,
-          owner: repo.owner.login,
-          forked: repo.fork,
-          stargazers: repo.stargazers_count,
-          commits: repo.commits_url,
-          languages: repo.languages_url,
-          repoUrl: repo.html_url,
-          help: false,
-        }, (err: any, userRepo: any) => {
-          if(err) {
-            console.log("There was an error creating the userRepo");
-            console.log(err)
-          }
-          console.log(userRepo);
-        })
-      } 
+      try{
+        // let dbRepo = await UserRepos.findOne({gitId: `${repo.id}`}).exec();
+
+        // if(dbRepo === null) {
+          // Create dbRepo using the userRepo Schema
+          const user = new UserRepos({
+            gitId: repo.id,
+            name: repo.name,
+            description: repo.description,
+            owner: repo.owner.login,
+            forked: repo.fork,
+            stargazers: repo.stargazers_count,
+            commits: repo.commits_url,
+            languages_url: repo.languages_url,
+            repoUrl: repo.html_url,
+            help: false,
+          })
+
+          const _save = await user.save();
+
+        // } 
+
+      } catch {
+        console.log('There was an errorrrrr')
+      }
+      
       // Else Update the dbRepo document
 
-    })
+    };
 
-     return next()
   })
+  .then(()=> next())
   .catch(() => {
     return next()
-  })
-
-  
+  })  
 };
+
+userController.getLanguages = (_req: any, _res: any, next: any) => {
+  UserRepos.find({ owner: "oslabs-beta" }, (_err: any, data: any) => {
+    //iterate over the data returned, taking each object an update the languages key in the database
+    //updating the language key: fetch to the url from the same object's languages_url
+    console.log(`data inside of getLanguages controller:`, data)
+    data.forEach(async (repo: any) => {
+      await fetch(`${repo.languages_url}`)
+        .then((response) => response.json())
+        .then(async responseLanguages => {
+          await UserRepos.findOneAndUpdate({gitId: repo.gitId}, {languages: responseLanguages }, {findAndModify: false})
+        })
+    })
+    return next(); 
+  })
+}
+
+
+  //   .then((data: any) => {
+  //           //iterate over the data returned, taking each object an update the languages key in the database
+  //           //updating the language key: fetch to the url from the same object's languages_url
+  //     data.forEach(async (repo: any) => {
+  //       await fetch(`${repo.languages_url}`)
+  //         .then((response) => response.json())
+  //         .then(async responseLanguages => {
+  //           await UserRepos.findOneAndUpdate({gitId: repo.gitId}, {languages: responseLanguages }, {findAndModify: true})
+  //         })
+  //     })
+  //     console.log(data);
+  //     return next();
+  //   })
+  //   .catch((err: any) => {
+  //     console.log(err);
+  //     return next(); 
+  //   })
+  // //query the database
+  //   //the userRepos collection where owner of document is = userName
+
+
 
 export default userController;
