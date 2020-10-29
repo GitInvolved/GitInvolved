@@ -22,13 +22,8 @@ body {
 }
 
 #header-right {
-  grid-column: 2/3;
+  grid-column: 2 / 2;
   align-self: end;
-}
-
-#cat-and-repo {
-  display: inline-block;
-  margin-left: 2rem;
 }
 
 #profile-pic {
@@ -100,12 +95,28 @@ body {
   margin-left: 10px;
 }
 
+#cat-and-repo {
+  display: flex;
+}
+
 #categorycont {
   color: rgb(23, 75, 128);
   font-family: Arial, Helvetica, sans-serif;
   width: 12vw;
   min-width: 125px;
   text-align: center;
+}
+
+#repo-container {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 3rem;
+  width: 70%;
+  min-width: 23rem;
+}
+
+.repo-div {
+  padding-left: 1rem;
+  border: 2px solid black;
 }
 
 .catContainer {
