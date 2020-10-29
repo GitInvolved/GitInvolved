@@ -99,3 +99,106 @@ body {
 #logincont form div input {
   margin-left: 10px;
 }
+
+#categorycont {
+  color: rgb(23, 75, 128);
+  font-family: Arial, Helvetica, sans-serif;
+  width: 12vw;
+  min-width: 125px;
+  text-align: center;
+}
+
+.catContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  width: 12vw;
+  min-width: 120px;
+  height: 5vh;
+  padding-left: 0.5rem;
+  border: 2px solid linen;
+  margin-bottom: 0.25rem;
+}
+
+.catContainer .containericon {
+  margin-right: 00.5rem;
+}
+
+.containericon {
+  color: rgb(23, 75, 128);
+  font-size: medium;
+  bottom: 0px;
+}
+
+.addCatForm {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.addCatForm.active {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.addCatForm.active input {
+  width: 8vw;
+  border: none;
+  border-radius: 3px;
+  min-width: 100px;
+  margin-right: 0.5vw;
+  margin-left: 1.5vw;
+  margin-bottom: 1vh;
+  outline: none;
+  height: 2.5vh;
+  font-size: inherit;
+}
+
+.addCatForm.active button {
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: none;
+  border: none;
+  outline-style: none;
+  margin: none;
+  padding: 0px 0px 0px 0px !important;
+  margin-bottom: 1vh;
+  text-align: left;
+}
+
+.addCatForm.active button:visited {
+  border: none;
+  outline-style: none;
+  background-color: none;
+}
+
+.check {
+  position: relative;
+  margin-left: 0px !important;
+  margin-top: 0px !important;
+  padding-left: 0px !important;
+  padding-top: 0px !important;
+}
+
+.containericon.inactive {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.containericon.active {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  margin-left: 0.4vw;
+  vertical-align: middle;
+}
