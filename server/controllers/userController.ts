@@ -9,9 +9,17 @@ let userController: any = {};
 
 let dummyUser: string = 'oslabs-beta';
 
+require('dotenv').config();
+
+const dummyToken = process.env.DUMMY_TOKEN;
+
 // gitHubid, name (title), forked, stargazers_count, commits, languages_url
 userController.getRepos = async (_req: any, _res: any, next: any) => {
-  fetch(`https://api.github.com/users/${dummyUser}/repos`)
+  fetch(`https://api.github.com/users/${dummyUser}/repos`, {
+    headers: {
+      authorization: `token ${dummyToken}`
+    }
+  })
   .then(res => res.json())
   .then( async (data) => {
 
@@ -60,12 +68,16 @@ userController.getRepos = async (_req: any, _res: any, next: any) => {
 };
 
 userController.getLanguages = (_req: any, _res: any, next: any) => {
-  UserRepos.find({ owner: "oslabs-beta" }, (_err: any, data: any) => {
+  UserRepos.find({ owner: "oslabs-beta" }, async (_err: any, data: any) => {
     //iterate over the data returned, taking each object an update the languages key in the database
     //updating the language key: fetch to the url from the same object's languages_url
     console.log(`data inside of getLanguages controller:`, data)
-   for (let repo of data){
-     fetch(`${repo.languages_url}`)
+    for (let repo of data) {
+     await fetch(`${repo.languages_url}`, {
+      headers: {
+        authorization: `token ${dummyToken}`
+      }
+     })
     .then((response) => response.json())
     .then(async responseLanguages => {
       await UserRepos.findOneAndUpdate({gitId: repo.gitId}, {languages: responseLanguages }, {findAndModify: false})
@@ -91,8 +103,8 @@ userController.updateUser = (_req: any, res: any, next: any) => {
       }
       res.locals.userObject = data;
     });
+    return next()
   })
-  return next();
 
 }
 
