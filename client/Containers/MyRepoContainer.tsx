@@ -3,9 +3,9 @@ import Repo from '../Components/Repo';
 
 const MyRepoContainer = (props: any) => {
 
-  let repoList: any = [];
+  let myRepoList: any = [];
   for(let i = 0; i < props.data.length; i++) {
-    repoList.push(
+    myRepoList.push(
       <Repo
         name={props.data[i].name}
         gitId={props.data[i].gitId}
@@ -18,12 +18,9 @@ const MyRepoContainer = (props: any) => {
     );
   }
 
-  console.log('repo list');
-  console.log(repoList);
-
   return (
     <div id="repo-container">
-      {repoList}
+      {myRepoList}
     </div>
   )
 }

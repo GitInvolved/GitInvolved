@@ -48,6 +48,7 @@ const ProfileContainer = () => {
       languages_url: 'fds', //{type: String, required: true}, //don't use
       repoUrl: 'aqls.io',  
       help: false, // do they want help with their repo or not // when clicking, send gitId, project name, and true or false}
+      categories: ['GraphQL', 'Javascript', 'React Hooks'],
     },
     { gitId: 434,
       name: 'Gatsby', 

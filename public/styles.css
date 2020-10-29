@@ -52,8 +52,8 @@ body {
 
 .header-btn.inactive {
   background-color: rgb(25, 197, 219);
-  border: 2px solid linen;
-  color: rgb(29, 29, 124);
+  border: 2px solid lightgray;
+  color: rgb(236, 233, 233);
 }
 
 .header-btn:hover {
@@ -62,7 +62,7 @@ body {
 }
 
 .header-btn.inactive:hover {
-  color: lightgray;
+  color: navy;
   cursor: pointer;
 }
 
@@ -194,6 +194,17 @@ body {
   grid-row: 1;
   grid-column: 5;
   margin-top: 2rem;
+}
+
+.repodragtocat {
+  background-color: navy;
+  color: rgb(25, 197, 219);
+  border-radius: 5px;
+  grid-row: 1;
+  grid-column: 4;
+  text-align: center;
+  margin: 1rem 2rem 1rem 2rem;
+  padding-top: 1.2rem;
 }
 
 .repohelp {
