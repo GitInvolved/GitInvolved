@@ -3,7 +3,7 @@
 /* eslint-disable no-use-before-define */
 import React, { useState } from 'react';
 
-const Header = () => {
+const Header = (props: any) => {
   const [repoSearch, setRepoSearch] = useState('');
 
   const handleEnter = (e: any) => {
@@ -23,11 +23,11 @@ const Header = () => {
         />
       </div>
       <div id="header-right">
-        <div id="header-links">
-          <a className="header-btn" id="my-repos-header">
+        <div id="header-links">{props.myReposActive}
+          <a className={`header-btn ${props.myReposActive? 'active' : 'inactive'}`} id="my-repos-header" onClick={() => props.makeMyReposActive()}>
             My Repositories
           </a>
-          <a className="header-btn" id="starred-header">
+          <a className={`header-btn ${props.starredReposActive? 'active' : 'inactive'}`} id="starred-header" onClick={() => props.makeStarredReposActive()}>
             Starred Repositories
           </a>
         </div>

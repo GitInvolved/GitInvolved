@@ -1,13 +1,12 @@
 import React from 'react';
 import Repo from '../Components/Repo';
 
-const RepoContainer = () => {
+const StarredRepoContainer = () => {
   return (
     <div id="repo-container">
-      <h3>Repositories</h3>
       <Repo />
     </div>
   )
 }
 
-export default RepoContainer;
+export default StarredRepoContainer;
