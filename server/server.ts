@@ -1,16 +1,17 @@
 import express from 'express';
 import path from 'path';
+import mongoose from 'mongoose'
 
-const mongoose = require('mongoose');
-
-const userAPI = require('./routes/userAPI.ts')
+import userAPI from './routes/userAPI';
 
 require('dotenv').config();
 
 const PORT = 3000;
 const app = express();
 
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true});
+const uri: string = (typeof process.env.MONGO_URI === 'string') ? process.env.MONGO_URI : '';
+
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
 
 app.use(express.static('public'));
 app.use('/build', express.static(path.resolve(__dirname, '../../build')));
