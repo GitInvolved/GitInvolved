@@ -5,7 +5,7 @@ import ProfileContainer from './Containers/ProfileContainer';
 function App() {
   return(
     <>
-      <LoginContainer/>
+      {/* <LoginContainer/> */}
       <ProfileContainer />
     </>
   )

@@ -27,7 +27,8 @@
     "express": "^4.17.1",
     "mongoose": "^5.10.11",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-icons": "^3.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -45,7 +46,6 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "html-webpack-plugin": "^4.5.0",
-    "mini-css-extract-plugin": "^1.2.1",
     "nodemon": "^2.0.6",
     "sass": "^1.27.0",
     "sass-loader": "^10.0.4",

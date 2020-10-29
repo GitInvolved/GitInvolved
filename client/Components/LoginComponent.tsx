@@ -16,11 +16,11 @@ const LoginComponent = () => {
       <form>
         <div>
           <label htmlFor="inputun">Username: </label>
-          <input id="inputun" type="text" onChange={e=>setUsername(e.target.value)}/>
+          <input id="inputun" type="text" onChange={e=>setUsername(e.target.value)} value={username} />
         </div>
         <div>
           <label htmlFor="inputpw">Password: </label>
-          <input id="inputpw" type="text" onChange={e=>setPassword(e.target.value)}/>
+          <input id="inputpw" type="text" onChange={e=>setPassword(e.target.value)} value={password} />
         </div>
         <input type="submit" value="Login with Github" onClick={handleClick}/>
       </form>

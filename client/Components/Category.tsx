@@ -1,10 +1,10 @@
 import React from 'react';
+import { MdRemoveCircle } from 'react-icons/md';
 
-const Category = () => {
+const Category = (props: any) => {
+
   return (
-    <div>
-      <a><p>Add Category +</p></a>
-    </div>
+    <div id={props.id} className="catContainer">{props.catName}<MdRemoveCircle className="containericon" onClick={props.deleteCat}/></div>
   )
 }
 

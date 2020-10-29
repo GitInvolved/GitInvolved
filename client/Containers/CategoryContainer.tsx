@@ -1,11 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Category from '../Components/Category';
+import { MdAddCircle, MdCheckCircle, MdRemoveCircle } from 'react-icons/md';
 
 const CategoryContainer = () => {
+
+  const [categories, setCategories] = useState(['GraphQL', 'Typescript', 'React Native']);
+  const [newCat, setNewCat] = useState('');
+  const [isAddCatActive, setIsAddCatActive] = useState(false);
+
+  const handleAddCat = () => {
+    if(newCat) {
+      setIsAddCatActive(false);
+      setCategories(categories.concat(newCat));
+      console.log(newCat);
+      setNewCat('');
+    }
+  }
+
+  const handleDeleteCat = (e: any) => {
+    const newList = categories.filter((item) => item !== e.target.parentElement.parentElement.innerText);
+    setCategories(newList);
+  }
+  const catList: any = [];
+  for(let i=0; i < categories.length; i++) {
+    catList.push(<Category key={`categ${i}`} id={`categ${i}`} catName={categories[i]} deleteCat={handleDeleteCat}/>);
+  }
+
   return (
-    <div>
-      <h2>Category:</h2>
-      <Category />
+    <div id="categorycont">
+      <h3>Categories 
+        <MdAddCircle className={`containericon ${isAddCatActive? 'inactive' : 'active'}`} onClick={() => setIsAddCatActive(!isAddCatActive)}/>
+        <MdRemoveCircle className={`containericon ${isAddCatActive? 'active' : 'inactive'}`} onClick={() => setIsAddCatActive(!isAddCatActive)}/>
+      </h3>
+      <form className={`addCatForm ${isAddCatActive? 'active' : 'inactive'}`}>
+        <input type="text" onChange={e => setNewCat(e.target.value)} value={newCat} placeholder='Add Category' />
+        <button type="button"><MdCheckCircle className="containericon check" onClick={handleAddCat} /></button>
+      </form>
+
+      {catList}
     </div>
   )
 }
